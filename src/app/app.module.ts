@@ -29,8 +29,7 @@ import { ComponentsModule } from './components/components.module';
     AppComponent,
     AdminLayoutComponent,
     AuthLayoutComponent,
-    UserLayoutComponent
-  ],
+    UserLayoutComponent  ],
   providers: [],
   bootstrap: [AppComponent]
 })
