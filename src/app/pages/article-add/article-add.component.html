@@ -124,9 +124,46 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="ni ni-square-pin"></i></span>
                 </div>
-                <input ngModel name="articlePicture" class="form-control" placeholder="Picture" type="text">
+                  <!-- upload image -->
+
+                  <div class="container row">
+                      <div class="col-md-6">
+                          <input type="file" (change)="onFileChanged($event)">
+                      </div>
+                      <div class="col-md-6">
+                          <input type="button" (click)="onUpload()" value="upload">
+                      </div>
+                  </div>
+                  <hr />
+                  <div class="container row">
+                      <div class="col-md-12">
+                          <div *ngIf=message>{{message}}</div>
+                      </div>
+                  </div>
+                  <div class="container row">
+                      <div class="col-md-6">
+                          <input type="text" class="form-control" id="name" placeholder="image name" [(ngModel)]="imageName"
+                              name="name" />
+                      </div>
+                      <div class="col-md-6">
+                          <input type="button" (click)="getImage()" value="Get Image">
+                      </div>
+                  </div>
+                  <div class="container row">
+                      <div class="col-md-12">
+                          <div *ngIf=retrievedImage>
+                              <img [src]="retrievedImage">
+                          </div>
+                      </div>
+                  </div>
+
+
+
+                <!-- <input ngModel name="articlePicture" class="form-control" placeholder="Picture" type="text"> -->
               </div>
             </div>
+
+            <!-- fin upload image -->
             <div class="form-group">
                 <div class="input-group input-group-alternative">
                   <div class="input-group-prepend">
@@ -134,7 +171,6 @@
                   </div>
 
                  <select ngModel name="articleProvider">
-                   <option disabled>select provider</option>
                   <option *ngFor="let provider of providers" [ngValue]="provider.id">{{provider.name}}</option>
               </select>
 

@@ -21,8 +21,11 @@ export class DashboardComponent implements OnInit {
   public salesChart;
   public clicked: boolean = true;
   public clicked1: boolean = false;
+  public nombreUtilisateurs: any;
 
   ngOnInit() {
+
+    this.nombreUtilisateurs = 10;
 
     this.datasets = [
       [0, 20, 10, 30, 15, 40, 20, 60, 60],

@@ -127,6 +127,16 @@
                 <input ngModel name="providerAdress" class="form-control" placeholder="Adress" type="text">
               </div>
             </div>
+
+            <div class="form-group">
+                <div class="input-group input-group-alternative">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ni ni-square-pin"></i></span>
+                  </div>
+                  <input ngModel name="providerImage" class="form-control" placeholder="Image" type="file" (change)="onFileChanged($event)">
+                </div>
+              </div>
+
             <div class="text-center">
               <button type="submit" class="btn btn-primary mt-4">Ajouter</button>
             </div>

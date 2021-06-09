@@ -23,25 +23,25 @@ export class ProviderService {
     return this.Http.get(this.urlProviders + '/list');
   }
 
-  createProvider(myform) {
+  createProvider(provider) {
 
     //const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(this.username + ':' + this.password) });
 
-    this.provider = {
-      'name': myform.value.providerName,
-      'email': myform.value.providerEmail,
-      'address': myform.value.providerAdress
-    }
+    // this.provider = {
+    //   'name': myform.value.providerName,
+    //   'email': myform.value.providerEmail,
+    //   'address': myform.value.providerAdress
+    // }
     //return this.Http.post(this.urlProviders + '/add', this.provider,{ headers });
-    return this.Http.post(this.urlProviders + '/add', this.provider);
+    return this.Http.post(this.urlProviders + '/add', provider);
   }
 
 
 
-  updateProvider(myObj) {
+  updateProvider(myObj,id) {
     //const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(this.username + ':' + this.password) });
     //return this.Http.put(this.urlProviders + '/' + myObj['id'], myObj,{ headers });
-    return this.Http.put(this.urlProviders + '/' + myObj['id'], myObj);
+    return this.Http.put(this.urlProviders + '/' + id, myObj);
   }
   deleteProvider(myObj) {
     //const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(this.username + ':' + this.password) });

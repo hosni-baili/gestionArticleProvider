@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 })
 export class ProviderAddComponent implements OnInit {
 
+
   provider: any;
   selectedFile: File;
   retrievedImage: any;
@@ -18,18 +19,32 @@ export class ProviderAddComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  createProvider(myform) {
+
+  //Gets called when the user selects an image
+  public onFileChanged(event) {
+    //Select File
+    this.selectedFile = event.target.files[0];
     console.log(this.selectedFile);
-    this.service.createProvider(myform).subscribe(
-      response => {
+  }
+
+
+  createProvider(myform) {
+
+    const provider = new FormData();
+    provider.append('imageFile', this.selectedFile, this.selectedFile.name);
+    provider.append('imageName',this.selectedFile.name);
+    provider.append('name', myform.value.providerName);
+    provider.append('email', myform.value.providerEmail);
+    provider.append('address', myform.value.providerAdress);
+
+    this.service.createProvider(provider).subscribe(
+      (response) =>{
         console.log(response);
         this.router.navigate(['listProvider']);
       }
     );
+
   }
-  public onFileChanged(event) {
-    //Select File
-    this.selectedFile = event.target.files[0];
-  }
+
 
 }
